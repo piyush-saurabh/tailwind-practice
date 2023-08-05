@@ -630,4 +630,242 @@ xl	1280px	@media (min-width: 1280px) { ... }
 </script>
 ```
 
+## Aligning Items
+There are multiple ways of aligning items on the screen:
+- flexbox
+- grid
+- columns (most basic)
 
+### Columns
+- Not used very often. Use flexbox or grid instead
+- used inside a div which acts as the wrapper
+- Number after column indicates how the screen is divided horizontally
+- irrespective of the screen size, we will have 'N' number of columns
+- spacing between the columns are adjusted using 'gap'
+- To make column responsive, we can use class like columns-3xs/2xs/xs/sm/md/lg/xl etc
+- when using columns-xs, images will be stacked on each other. On larger screen it will be in 1 line
+- For a column, we can change the aspect ratio. Possible options for aspect ration: aspect-video, aspect-square, 
+
+```
+# Divide screen in 2 columns
+<div class="columns-2">
+    <img class="w-full" src="tailwind-sandbox/assets/img/img1.jpg" alt="">
+    <img class="w-full" src="tailwind-sandbox/assets/img/img2.jpg" alt="">
+</div>
+
+# Available column option
+columns-1	      columns: 1;
+columns-2	      columns: 2;
+columns-3	      columns: 3;
+columns-4	      columns: 4;
+columns-5	      columns: 5;
+columns-6	      columns: 6;
+columns-7	      columns: 7;
+columns-8	      columns: 8;
+columns-9	      columns: 9;
+columns-10	    columns: 10;
+columns-11	    columns: 11;
+columns-12	    columns: 12;
+columns-auto	  columns: auto;
+
+# Adjust the spacing between column
+gap-0 (no space between 2 columns)
+
+# Responsive columns
+columns-3xs	    columns: 16rem; /* 256px */
+columns-2xs	    columns: 18rem; /* 288px */
+columns-xs	    columns: 20rem; /* 320px */
+columns-sm	    columns: 24rem; /* 384px */
+columns-md	    columns: 28rem; /* 448px */
+columns-lg	    columns: 32rem; /* 512px */
+columns-xl	    columns: 36rem; /* 576px */
+columns-2xl	    columns: 42rem; /* 672px */
+columns-3xl	    columns: 48rem; /* 768px */
+columns-4xl	    columns: 56rem; /* 896px */
+columns-5xl	    columns: 64rem; /* 1024px */
+columns-6xl	    columns: 72rem; /* 1152px */
+columns-7xl	    columns: 80rem; /* 1280px */
+
+```
+
+### Flexbox
+- USE THIS
+- Used with div
+- By default nested div will be placed horizontally one after the another
+- On using 'flex' on the parent div, nested div will be placed in a row
+- we can make flex to the default div behavior (column) by adding 'flex-col'
+- Workflow: begin with flex-col (for small screen) then make it in  'md:flex-row' for larger screen
+- By default all the child element has 'items-stretch' property which 'fills' the 'vertical' space (if parent is row) OR 'horizontal' space (if parent is col) on the parent div. 
+- Justify content is also applied on the parent div which is used to align the child div. It moves the child container in different direction.
+- Use 'items-center' with 'justify-center' to have proper fill and positioning from all directions
+- wrap the elements so that we don't get scroll bar: 'flex-wrap'
+- By default, flex property on "child items" is set to 'flex-initial'. This allows the flex container to 'shrink but not grow'.
+
+
+```
+# All nested div in a row
+<div class="flex">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+</div>
+
+# All nested div in a column
+<div class="flex flex-col">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+</div>
+
+# Commonly used flex settings
+flex flex-col md:flex-row
+
+# Alignment of child elements. The behavior is set on the parent flex. Determins the 'Fill' of the child container.
+## If flex row is used
+items-stretch (default)
+items-start (top left side)
+items-end (end left side)
+items-center (center on Y)
+
+## If flex column is used
+items-stretch (default)
+items-start (left side)
+items-end (right side)
+items-center (center on X axis)
+
+# Justify content. 
+justify-center (Place all the child div in the center of parent div)
+justify-end (place it at the end)
+justify-start (place it in beginning)
+justify-around (add the remaining space from parent div around each child element. Spaces will be at the edge of the the screen)
+justify-between	(If we want to fill the remaning space and don't need space at the edge of the screen, use this)
+justify-evenly ()
+
+
+# Wrapping
+flex-wrap
+
+# Change the order of the child elements. It is applied on child items
+# We need to provide order for all the elemetns
+<div class="flex flex-col gap-4 h-72 items-center justify-between w-full bg-gray-100">
+  <div class="order-3 p-10 border border-blue-300 bg-blue-100">01</div>
+  <div class="order-1 p-10 border border-blue-300 bg-blue-100">02</div>
+  <div class="order-4 p-10 border border-blue-300 bg-blue-100">03</div>
+  <div class="order-2 p-10 border border-blue-300 bg-blue-100">04</div>
+</div>
+
+# Flex item properties
+flex-initial (default: Allow item to shrink but not grow, taking into account its initial size)
+flex-none (Prevent item from growing or shrinking)
+flex-auto (Allow item to grow and shrink, taking into account its initial size)
+flex-1 (Allow item to grow and shrink as needed, ignoring its initial size)
+
+```
+
+### Grid
+- puts the element in column by default (unlike flexbox)
+- It puts all the nested elements in the columns we specify to create a "table like structure"
+- It is applied on parent div
+- We can make the column uneven using 'col-span-2' on items
+
+```
+# Put child items in columns. It creates 2x2 table
+<div class="grid grid-cols-2">
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 1</div>
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 2</div>
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 3</div>
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 4</div>
+</div>
+
+# We can use gap to insert space
+grid grid-cols-2 gap-2
+
+# Span the column (add this property on column items)
+col-span-2
+
+# Span the rows
+row-span-2
+
+# Responsive Grid layout
+# use default parent: grid-cols-1 and for child add col for medium screen md:col-span-2. by default it wil lbe stacked
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div class="md:col-span-2  p-10 border border-blue-600 bg-blue-100">Grid 1</div>
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 2</div>
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 3</div>
+    <div class="p-10 border border-blue-600 bg-blue-100">Grid 4</div>
+</div>
+
+```
+
+## Transition and Transformation
+There are different properties of an element which we can transition:
+- color (background color, border color, text)
+- decoration (fill, stroke, opacity, shadow)
+- timing
+- transformation (scale - maker larger/smaller, rotate, translate - move on x and y axis, skew)
+
+All the transformation can be applied on the event like 'hover'.
+
+```
+# Add transition (hover effect) with some delay (default: 150ms, max: 1000ms/1s)
+hover:bg-blue-700 transition-color duration-1000
+
+# Multiple transitions (change color and opacity) with delay 
+hover:bg-blue-700 hover:opacity-20 transition duration-1000
+
+# Rotate on hover with 1 sec transition
+hover:rotate-12 transition-transform duration-1000
+
+# Rotate, scale and skew on hover with 1 sec transition
+hover:rotate-180 hover:scale-75 hover:skew-x-12 transition duration-1000
+
+```
+
+## Animations and Key Frames
+- Animation can be performed on svg files
+
+```
+# Animations
+animate-spin
+animate-pulse
+animate-ping
+animate-bounce
+
+```
+
+## Configuration and Customization
+- we will use javascript to configure default tailwind behavior
+- The scripts can go in the same file or in prod it will be inside tailwind.config.js (when using CLI)
+
+Tailwind properties which we can modify/extend
+- screens
+- fontFamily
+- colors
+- spacing
+- darkMode
+
+```
+# Replace the existing properties
+<script>
+// Change default screen size
+  tailwind.config = {
+            theme: {
+                screens: {
+                    sm: '550px',
+                    md: '800px',
+                    lg: '1200px',
+                    xl: '1440px'
+                }
+            }
+        }
+<script>
+
+# Extend the existing property, we will use 'extend' before screen property.
+
+```
+
+## Dark Mode
+- If our OS is in dark mode, we can use tailwind css class to display elements in dark mode
+- source: https://tailwindcomponents.com/component/toggle-switch

@@ -4,6 +4,10 @@ This repository is created to practice Tailwind CSS from the Udemy course https:
 # Syntax
 element/styling-color-value
 
+## UI Tips
+- Get premain components from: https://tailwindcomponents.com/
+- On hover, make the button shade dark. For e.g change color from 500 > 700
+
 ## Element
 - text
 - bg (background)
