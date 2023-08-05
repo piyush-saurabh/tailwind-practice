@@ -33,6 +33,53 @@ https://github.com/bradtraversy/tailwind-course-projects
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
 
+**Tailwind CLI**
+
+```
+mkdir simple-tailwind-starter
+cd simple-tailwind-starter
+
+# Initiallize (crate package.json)
+npm init -y
+
+# Install tailwind as dev dependecy (-D)
+npm install -D tailwindcss
+
+# Initialize tailwind (create tailwind.config.js)
+npx tailwindcss init
+
+# Update the tailwind.config.js file to look for 'all html files' wich contains tailwind class
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/*.html'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+# Create input.css file inside 'src' and put the following content (directives) to bring the tailwind code
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+# Start Tailwind CLI build process (OR in package.json, add this command under scripts, e.g. build)
+# style.css will be included in the html
+npx tailwindcss -i ./src/input.css -o ./css/style.css --watch
+
+# package.json build script
+"scripts": {
+  "build": "tailwindcss -i ./src/input.css -o ./src/css/style.css",
+  "watch": "tailwindcss -i ./src/input.css -o ./src/css/style.css --watch"
+
+}
+
+# Build the project (uses the script inside package.json)
+npm run build
+
+
+```
+
 **Node JS**
 
 # Tailwind Fundamentals - Part 1
