@@ -1,1 +1,238 @@
-<div class="text-h1"></div>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Practice</title>
+  </head>
+  <body class="bg-white sm:bg-green-800 md:bg-blue-800 lg:bg-yellow-800 xl:bg-white">
+    <div class="h-10"></div>
+    <h1>This element we will refer in javascript</h1>
+
+    <h1 class="text-black text-xl md:text-3xl">Sample Text<h1></h1>
+
+    <script>
+        //script which tells browser size
+        function showBrowserWidth(){
+            const width = window.innerWidth;
+
+            document.querySelector('h1').innerText = `Width: ${width}`;
+
+        }
+
+        // Invoke the function
+        window.onload = showBrowserWidth
+        window.onresize = showBrowserWidth
+
+    </script>
+
+    <button class="bg-black text-white py-3 px-5 rounded-lg hover:bg-orange-500 hover:text-white">Hover Button effect</button>
+    <br><br>
+
+    <button class="bg-black text-white py-3 px-5 rounded-lg focus:bg-green-500 focus:text-white">Focus effect</button>
+    <br><br>
+
+    <button class="bg-black text-white py-3 px-5 rounded-lg active:bg-yellow-500 active:text-white">Active effect</button>
+    <br><br>
+
+    <a href="" class="group block max-w-lg mx-auto rounded-lg p-6 bg-white shadow-lg space-y-3 hover:bg-sky-500">
+        <h3 class="group-hover:text-white">This is a card  heading h3 inside anchor tag</h3>
+        <p class="group-hover:text-red-500">This is a card text in paragraph inside anchor tag</p>
+    </a>
+
+    <ul>
+        <li class="first:bg-red-200">Item 1</li>
+        <li class="first:bg-red-200 even:bg-green-200 odd:bg-orange-200">Item 2</li>
+        <li class="first:bg-red-200 even:bg-green-200 odd:bg-orange-200">Item 3</li>
+        <li class="first:bg-red-200 even:bg-green-200 odd:bg-orange-200">Item 4</li>
+        <li class="first:bg-red-200 even:bg-green-200 odd:bg-orange-200">Item 5</li>
+        <li class="first:bg-red-200 even:bg-green-200 odd:bg-orange-200">Item 6</li>
+    </ul>
+
+    <br><br>
+
+    <select class="appearance-none">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    <br><br>
+
+    <p>Paragraph without pointer</p>
+    <p class="cursor-pointer">Paragraph with hand pointer</p>
+    <p class="cursor-wait">Paragraph with wait pointer</p>
+    <p class="cursor-not-allowed">Paragraph with not allowed pointer</p>
+    
+    <br><br>
+
+    <div>This text in div can be selected</div>
+    <p>This text in paragraph can be selected</p>
+    <div class="select-none">This text in div cannot be selected</div>
+    <p class="select-none">This text in paragraph can be selected</p>
+    <p class="select-all">All this text in paragraph can be selected on clicking once</p>
+    <br><br>
+
+    <a href="#item" class="block my-6">Go To Item (Smooth Scroll demo)</a>
+
+
+    <br><br>
+
+
+
+    <button class="outline outline-4 outline-red-500">Button with outline</button>
+    <br><br>
+
+    <div class="blur-sm">This is a blurry text</div>
+    <div class="blur">This is more blurry text</div>
+
+    <img class="blur" src="tailwind-sandbox/assets/img/img1.jpg" alt="">
+    <img class="brightness-50" src="tailwind-sandbox/assets/img/img2.jpg" alt="">
+    <img class="brightness-100" src="tailwind-sandbox/assets/img/img2.jpg" alt="">
+    <img class="brightness-150" src="tailwind-sandbox/assets/img/img2.jpg" alt="">
+    <img class="brightness-200" src="tailwind-sandbox/assets/img/img2.jpg" alt="">
+
+    <img class="contrast-50" src="tailwind-sandbox/assets/img/img3.jpg" alt="">
+    <img class="contrast-100" src="tailwind-sandbox/assets/img/img3.jpg" alt="">
+    <img class="contrast-200" src="tailwind-sandbox/assets/img/img3.jpg" alt="">
+
+    <img class="grayscale" src="tailwind-sandbox/assets/img/img4.jpg" alt="">
+    <img class="invert" src="tailwind-sandbox/assets/img/img4.jpg" alt="">
+    <img class="sepia" src="tailwind-sandbox/assets/img/img4.jpg" alt="">
+
+    <div class="bg-black text-white w-12">width: w-12</div>
+
+    <div class="bg-green-700 text-white w-1/4">width: w-1/4</div>
+
+    <div class="bg-blue-700 text-white w-full">100% width: w-full</div>
+
+    <img src="tailwind-sandbox/assets/img/img1.jpg" alt="">
+
+    <div class="bg-green-400 text-white w-[300px]">arbitrary width: w-[300px]</div>
+
+    <div class="bg-gray-300 max-w-lg mx-auto">This is max width: max-w-lg. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+
+    <div class="flex items-end">
+        <div class="bg-orange-500 h-24">Height: h-24</div>
+        <div class="bg-blue-500 h-48">Height: h-48</div>
+        <div class="bg-blue-500 h-5">Non standard Height: h-5</div>
+        <div class="bg-blue-500 h-9">Non standard Height: h-15</div>
+    </div>
+
+    <div class="relative bg-red-200 w-1/2 h-12">
+        <p>Parent Element demostrting relative width</p>
+        <div class="absolute bottom-0 right-0 bg-red-500">
+            <p>Absolute child</p>
+        </div>
+        <div class="absolute left-0 bottom-0 bg-green-500">
+            <p>Absolute child</p>
+        </div>
+    </div>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quae libero earum eum a sunt commodi numquam, nobis repudiandae possimus quas enim ut nihil alias. Itaque placeat vel veritatis <span class="inline font-bold">This is inline text</span> repellat ducimus nostrum, iste dolorem illum, sapiente reiciendis hic! Eum cumque obcaecati tempora ipsum nisi ex architecto provident voluptas? Rerum nostrum, nam beatae <span class="inline-block font-bold">This is inline block text. </span>reprehenderit omnis necessitatibus labore, corrupti aperiam neque maxime perspiciatis ullam suscipit quis <span class="block font-bold">This is block text. </span>exercitationem distinctio amet? Minus, officia <span class="hidden">This is hidden text. </span>soluta.
+    </div>
+
+    <div class="bg-blue-400 w-24 left-20 absolute z-40">1</div>
+    <div class="bg-green-500 w-24 left-40 absolute z-20">2</div>
+    <div class="bg-red-600 w-24 left-60 absolute z-30">3</div>
+
+    <br><br><br>
+
+
+    <div class="w-1/2">
+        <img class="h-48 w-48 float-left m-4" src="tailwind-sandbox/assets/img/img1.jpg" alt="">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quaerat pariatur minus tenetur provident odit, nam exercitationem vitae dolorem distinctio quos, ex reiciendis error molestias! Molestias totam qui, non a velit est quo cum minima ex odit perferendis cumque dicta!</p>
+    </div>
+
+    <br><br><br><br>
+    
+    <div class="h-64 w-72 bg-no-repeat bg-cover bg-center" style="background-image: url('tailwind-sandbox/assets/img/img1.jpg');"></div>
+
+    <div class="h-24 bg-gradient-to-r from-red-500 to-blue-500">
+        Gradient
+    </div>
+
+    <div class="w-96 mt-6 ml-4 p-3 shadow">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt dolor similique consequatur repudiandae, voluptas nihil eligendi optio, atque, odit nobis quis nisi unde sed ut dolorum ab. Quibusdam placeat corrupti eos. Pariatur esse reiciendis minima tempora id sit accusantium!
+    </div>
+
+    <div class="w-96 mt-6 ml-4 p-3 shadow-md">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt dolor similique consequatur repudiandae, voluptas nihil eligendi optio, atque, odit nobis quis nisi unde sed ut dolorum ab. Quibusdam placeat corrupti eos. Pariatur esse reiciendis minima tempora id sit accusantium!
+    </div>
+
+    <div class="w-96 mt-6 ml-4 p-3 shadow-lg shadow-red-500/50">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt dolor similique consequatur repudiandae, voluptas nihil eligendi optio, atque, odit nobis quis nisi unde sed ut dolorum ab. Quibusdam placeat corrupti eos. Pariatur esse reiciendis minima tempora id sit accusantium!
+    </div>
+
+    <div class="w-96 mt-6 ml-4 p-3 shadow-xl">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt dolor similique consequatur repudiandae, voluptas nihil eligendi optio, atque, odit nobis quis nisi unde sed ut dolorum ab. Quibusdam placeat corrupti eos. Pariatur esse reiciendis minima tempora id sit accusantium!
+    </div>
+
+    <div class="w-96 mt-6 ml-4 p-3 shadow-2xl shadow-blue-500">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt dolor similique consequatur repudiandae, voluptas nihil eligendi optio, atque, odit nobis quis nisi unde sed ut dolorum ab. Quibusdam placeat corrupti eos. Pariatur esse reiciendis minima tempora id sit accusantium!
+    </div>
+
+    <div class="w-96 mt-6 ml-4 p-3 shadow-xl">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt dolor similique consequatur repudiandae, voluptas nihil eligendi optio, atque, odit nobis quis nisi unde sed ut dolorum ab. Quibusdam placeat corrupti eos. Pariatur esse reiciendis minima tempora id sit accusantium!
+    </div>
+
+    <div class="flex justify-center -space-x-24">
+        <div class="bg-blue-400 mix-blend-multiply">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam minima fuga sint temporibus vitae aperiam molestias eveniet aut eum cumque?
+        </div>
+        <div class="bg-pink-400 mix-blend-multiply">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo a ducimus unde, in saepe voluptatibus tenetur amet quisquam veniam officia?
+        </div>
+    </div>
+
+    <div class="w-96 m-3 p-5 border">
+        1px border. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-2">
+        2px border. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-2 border-red-500">
+        colored border. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-x-4">
+        border on just 1 side. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-y-4">
+        border on just 1 side. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-r-4">
+        border on just 1 side. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-4 rounded">
+        border with radius. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+    <div class="w-96 m-3 p-5 border-4 rounded-lg">
+        border with radius lg. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+    <div class="w-96 m-3 p-5 border-4 rounded-xl">
+        border with radius xl. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+    <div class="w-96 m-3 p-5 border-4 rounded-2xl">
+        border with radius 2xl. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-4 rounded-full">
+        border with radius full. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div class="w-96 m-3 p-5 border-4 rounded-t-2xl">
+        border with top rounded radius. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, illum.
+    </div>
+
+    <div id="item">This is the location we want to reach after scrolling.</div>
+
+
+  </body>
+</html>
