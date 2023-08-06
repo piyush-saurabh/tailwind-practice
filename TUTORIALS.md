@@ -916,3 +916,65 @@ Tailwind properties which we can modify/extend
 ## Dark Mode
 - If our OS is in dark mode, we can use tailwind css class to display elements in dark mode
 - source: https://tailwindcomponents.com/component/toggle-switch
+
+## Directives
+Directives are special at-rules which we can use in our CSS. 
+
+Importing tailwind components into our css
+```
+# File: input.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Provide set of custom styles using `@layer` directives
+```
+# We can make all h1 with default font size of 2rem without adding any class on h1
+@layer base{
+    h1{
+        font-size: 2rem;
+    }
+}
+
+```
+
+We can also use `@apply` directives to reuse existing tailwind classes
+```
+@layer base{
+    h1{
+        font-size: 2rem;
+    }
+
+    h2{
+        @apply text-xl;
+    }
+}
+```
+
+We can also create custom classes `btn-blue` in `input.css`
+```
+@layer components{
+    .btn-blue{
+        @apply bg-blue-500 py-2 px-4 rounded-xl font-bold hover:bg-blue-700;   
+    }
+}
+```
+
+Another way of creating the custom class directly in `input.css`
+```
+/* Custom Class 2 */
+.content-area {
+    @apply bg-green-200;
+    height: theme('spacing.128'); /* Get the value from tailwind.config.js */
+}
+```
+
+Directive to define screen settings. When screen size is 'xl' below settings will be in effect
+```
+@media screen(xl){
+    body{
+        @apply bg-black text-white;
+    }
+}
+```
